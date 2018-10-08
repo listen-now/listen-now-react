@@ -1,14 +1,18 @@
 import React, { Component } from 'react';
 import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
-import './App.css';
+import './App.less';
 
-import LnLogo from './components/LnLogo';
+import Logo from './components/Logo';
+import Search from './components/Search';
+import Panel from './components/Panel';
 
 class App extends Component {
   render() {
     return (
       <div className="App">
-        <LnLogo />
+        <Logo />
+        <Search />
+        <Panel />
       </div>
     );
   }
