@@ -6,6 +6,12 @@ import Logo from './components/Logo';
 import Search from './components/Search';
 import Panel from './components/Panel';
 
+const mockUserInfo = {
+  avatar:
+    'http://www.ghost64.com/qqtupian/zixunImg/local/2016/11/25/14800673277815.jpg',
+  username: '乔巴'
+};
+
 class App extends Component {
   render() {
     return (
