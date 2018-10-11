@@ -5,6 +5,7 @@ import './App.less';
 import Logo from './components/Logo';
 import Search from './components/Search';
 import Panel from './components/Panel';
+import Player from './components/Player';
 
 const mockUserInfo = {
   avatar:
@@ -19,6 +20,7 @@ class App extends Component {
         <Logo />
         <Search />
         <Panel />
+        <Player />
       </div>
     );
   }
