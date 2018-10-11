@@ -1,0 +1,64 @@
+.player-controls {
+  width: 300px;
+  height: 30px;
+  display: flex;
+  &__volume {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 120px;
+    height: 100%;
+    border-radius: 15px;
+    background: #fff;
+  }
+  &__substract {
+    margin-left: 6px;
+  }
+  &__add {
+    margin-right: 6px;
+  }
+  &__substract, &__add {
+    cursor: pointer;
+  }
+  &__volume-bar {
+    width: 72px;
+    height: 1px;
+    background: #ebebeb;
+    position: relative;
+  }
+  &__point {
+    position: absolute;
+    top: -5px;
+    left: 20px;
+    width: 11px;
+    height: 11px;
+    border-radius: 50%;
+    background: #282828;
+  }
+  &__song-info,
+  &__collect,
+  &__play-mode,
+  &__play-list {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background: #fff;
+    margin-left: 15px;
+    cursor: pointer;
+  }
+  &__song-info i {
+    color: #e8ff00;
+  }
+  &__collect i {
+    color: #ff0069;
+  }
+  &__play-mode i {
+    color: #0092ca;
+  }
+  &__play-list i {
+    color: #ff6100;
+  }
+}
