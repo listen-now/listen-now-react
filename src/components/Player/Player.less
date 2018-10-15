@@ -1,7 +1,9 @@
 .player-controls {
   width: 300px;
-  height: 30px;
-  display: flex;
+  &__wrap {
+    height: 30px;
+    display: flex;
+  }
   &__volume {
     display: flex;
     justify-content: space-between;
@@ -17,7 +19,8 @@
   &__add {
     margin-right: 6px;
   }
-  &__substract, &__add {
+  &__substract,
+  &__add {
     cursor: pointer;
   }
   &__volume-bar {
@@ -61,5 +64,35 @@
   }
   &__play-list i {
     color: #ff6100;
+  }
+
+  // swiper
+
+  &__swiper {
+    position: relative;
+    .swiper-slide {
+      width: 192px;
+      height: 192px;
+    }
+  }
+  &__pre,
+  &__next {
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    background: rgba(0, 0, 0, 0.5);
+    position: absolute;
+    top: 78px;
+    z-index: 1;
+  }
+  &__pre {
+    left: 10px;
+  }
+  &__next {
+    right: 10px;
+  }
+  &__pre-song,
+  &__next-song {
+    color: #fff;
   }
 }
