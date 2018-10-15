@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import './Player.less';
 import { LnIcon } from '../../packages';
+import Draggable from 'react-draggable';
 
 /**
  * Player
@@ -9,6 +10,13 @@ import { LnIcon } from '../../packages';
 export default class Player extends Component {
   static propTypes = {};
   static defaultProps = {};
+  onMouseMove = e => {
+    console.log(e);
+  };
+
+  handleDrag = (e, data) => {
+    const x = data.x;
+  };
 
   render() {
     const { value } = this.props;
@@ -22,7 +30,13 @@ export default class Player extends Component {
               className="player-controls__substract"
             />
             <div className="player-controls__volume-bar">
-              <span className="player-controls__point" />
+              <Draggable
+                axis="x"
+                bounds={{ left: 0, right: 61 }}
+                onDrag={this.handleDrag}
+              >
+                <span className="player-controls__point" />
+              </Draggable>
             </div>
             <LnIcon type="add" size={12} className="player-controls__add" />
           </div>
