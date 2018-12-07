@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import './NavItem.less';
 import LnIcon from '../../../packages/LnIcon';
@@ -6,7 +6,7 @@ import LnIcon from '../../../packages/LnIcon';
 /**
  * NavItem
  */
-export default class NavItem extends Component {
+export default class NavItem extends PureComponent {
   static propTypes = {
     item: PropTypes.object.isRequired
   };
