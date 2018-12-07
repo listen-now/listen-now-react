@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { PureComponent } from 'react';
 import LnIcon from '../../packages/LnIcon';
 import PropTypes from 'prop-types';
 import './Search.less';
@@ -6,7 +6,7 @@ import './Search.less';
 /**
  * search
  */
-export default class Search extends Component {
+export default class Search extends PureComponent {
   static propTypes = {
     /**
      * 搜索框的值

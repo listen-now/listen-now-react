@@ -1,11 +1,11 @@
-import React, { Component } from 'react';
+import React, { PureComponent } from 'react';
 import logo from '../../assets/images/logo.png';
 import './Logo.less';
 
 /**
  * Logo
  */
-export default class LnLogo extends Component {
+export default class LnLogo extends PureComponent {
   render() {
     return (
       <div className="logo">

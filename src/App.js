@@ -6,6 +6,7 @@ import Logo from './components/Logo';
 import Search from './components/Search';
 import Panel from './components/Panel';
 import Player from './components/Player';
+import Home from './pages/Home';
 
 const mockUserInfo = {
   avatar:
@@ -17,10 +18,16 @@ class App extends Component {
   render() {
     return (
       <div className="App">
+
+        <div>
         <Logo />
         <Search />
         <Panel />
         <Player />
+        </div>
+        
+
+        
       </div>
     );
   }
