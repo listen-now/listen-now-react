@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
-import './index.less';
+import './Home.less';
 
 /**
  * 首页
  */
 export default class Home extends Component {
   render() {
-    return <div />;
+    return <div className="home">home</div>;
   }
 }
