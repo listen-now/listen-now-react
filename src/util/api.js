@@ -26,6 +26,7 @@ export const makeCancelable = promise => {
 // 开发环境
 if (process.env.NODE_ENV === 'development') {
   axios.defaults.baseURL = 'http://127.0.0.1:80/';
+  // axios.defaults.withCredentials = true;
 
   // 生产环境
 } else if (process.env.NODE_ENV === 'production') {

@@ -11,31 +11,32 @@ import Enjoy from './pages/Enjoy';
 import NotFound from './pages/NotFound';
 
 import { hasToken, setItem } from './util/util';
-import platform from './util/platform';
-import { getBeforehandToken, getToken, search } from './util/api';
+import { getBeforehandToken, getToken, getHotSongList } from './util/api';
 
 import message from 'antd/lib/message';
 import 'antd/lib/message/style/css';
 
 class App extends Component {
-  componentDidMount = () => {
+  componentDidMount = async () => {
     // 无长效 token
     if (!hasToken()) {
-      this.getToken();
+      await this.getToken();
     }
+    // 获取热门歌单
+    this.getHotSongList();
   };
 
   componentWillUnmount = () => {
-    this.getBeforehandToken.cancel();
-    this.getToken.cancel();
+    this.p1.cancel();
+    this.p2.cancel();
   };
 
   getToken = async () => {
     // 获取预 token
-    this.getBeforehandToken = getBeforehandToken();
+    this.p1 = getBeforehandToken();
     let res;
     try {
-      res = await this.getBeforehandToken.promise;
+      res = await this.p1.promise;
     } catch (err) {
       return message.error(err.message);
     }
@@ -46,13 +47,24 @@ class App extends Component {
     const token = tokenMessage.substring(2, tokenMessage.length - 1);
 
     // 获取长效 token
-    this.getToken = getToken(1, token);
+    this.p2 = getToken(1, token);
     try {
-      res = await this.getToken.promise;
+      res = await this.p2.promise;
     } catch (err) {
       return message.error(err.message);
     }
     setItem('token', token);
+  };
+
+  getHotSongList = async () => {
+    let res;
+    this.p3 = getHotSongList();
+    try {
+      res = await this.p3.promise;
+    } catch (err) {
+      return message.error(err.message);
+    }
+    console.log('res:', res);
   };
 
   render() {
