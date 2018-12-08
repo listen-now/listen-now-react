@@ -10,17 +10,57 @@ import Search from './pages/Search';
 import Enjoy from './pages/Enjoy';
 import NotFound from './pages/NotFound';
 
-const mockUserInfo = {
-  avatar:
-    'http://www.ghost64.com/qqtupian/zixunImg/local/2016/11/25/14800673277815.jpg',
-  username: '乔巴'
-};
+import { hasToken, setItem } from './util/util';
+import platform from './util/platform';
+import { getBeforehandToken, getToken, search } from './util/api';
+
+import message from 'antd/lib/message';
+import 'antd/lib/message/style/css';
 
 class App extends Component {
+  componentDidMount = () => {
+    // 无长效 token
+    if (!hasToken()) {
+      this.getToken();
+    }
+  };
+
+  componentWillUnmount = () => {
+    this.getBeforehandToken.cancel();
+    this.getToken.cancel();
+  };
+
+  getToken = async () => {
+    // 获取预 token
+    this.getBeforehandToken = getBeforehandToken();
+    let res;
+    try {
+      res = await this.getBeforehandToken.promise;
+    } catch (err) {
+      return message.error(err.message);
+    }
+    const tokenMessage = res.token_message;
+    if (!tokenMessage) {
+      return message.error('获取预 token 失败');
+    }
+    const token = tokenMessage.substring(2, tokenMessage.length - 1);
+
+    // 获取长效 token
+    this.getToken = getToken(1, token);
+    try {
+      res = await this.getToken.promise;
+    } catch (err) {
+      return message.error(err.message);
+    }
+    setItem('token', token);
+  };
+
   render() {
     return (
-      <div className="App">
-        <ActinBar />
+      <div className="app">
+        <div className="app-action-bar">
+          <ActinBar />
+        </div>
 
         <div className="app-router">
           <Router>
