@@ -97,16 +97,16 @@ export default class Player extends Component {
               <LnIcon type="add" size={12} className="player-controls__add" />
             </div>
             <div className="player-controls__song-info">
-              <LnIcon type="info" />
+              <LnIcon type="info" size={12} />
             </div>
             <div className="player-controls__collect">
-              <LnIcon type="collect" />
+              <LnIcon type="collect" size={12} />
             </div>
             <div className="player-controls__play-mode">
-              <LnIcon type="random" />
+              <LnIcon type="random" size={12} />
             </div>
             <div className="player-controls__play-list">
-              <LnIcon type="song-list" />
+              <LnIcon type="song-list" size={12} />
             </div>
           </div>
 
